@@ -53,7 +53,7 @@ Ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/multi-step-form.git
+   git clone https://github.com/iharshspatel/polaris-multistep-form
    ```
 2. Navigate to the project directory:
    ```bash
@@ -125,6 +125,8 @@ Modify the `useFormValidation.js` hook to add more complex validation rules (e.g
 
 ## Challenges Faced
 
+- Designing an Intuitive Layout : One of the key challenges was creating a user-friendly layout for the multi-step form Ensuring that all the fields were presented in an intuitive and visually appealing way required careful thought especially given the diverse nature of inputs (personal information, country and city selection, and payment details).
+- API Integration and Data Management : Integrating two APIs (countries and cities) presented challenges in terms of managing the structure and flow of data. Dynamically fetching and updating cities based on the selected country required meticulous handling of API responses, state management, and error handling. Additionally, ensuring seamless transitions between steps while maintaining the state across refreshes was more time-consuming than anticipated.
 - Integrating dynamic APIs for fetching country and city data.
 - Ensuring seamless state management across steps and persistence.
 - Optimizing validation logic to work per step.
