@@ -10,9 +10,6 @@ import {LOCAL_STORAGE, TITLE} from "./constants/constants.js"
 import '@shopify/polaris/build/esm/styles.css';
 
 const App = () => {
-  
-  const [title , setTitle ] = useState("");
-  const { errors, validate } = useFormValidation(formState);
   const [currentStep, setCurrentStep] = useState(()=>{
     const currentStep = localStorage.getItem(LOCAL_STORAGE.CURRENT_STEP);
     return currentStep ? parseInt(currentStep) : 1;
@@ -25,7 +22,8 @@ const App = () => {
       paymentInfo: { cardNumber: '', expiry: '', cvv: '', billingAddress: '' },
     };
   });
-
+  const [title , setTitle ] = useState("");
+  const { errors, validate } = useFormValidation(formState);
 
   const nextStep = ()  => { 
     if (validate(currentStep)) {
