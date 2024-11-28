@@ -8,7 +8,7 @@ const Step2 = ({ formState, updateFormState, errors }) => {
   const [loading, setLoading] = useState(false);
 
   const fetchCities = async (countryCode) => {
-    //TODO : ADD PAGINATION 
+    //TODO : ADD PAGINATION
     setLoading(true);
     const response = await fetch(`${URLS.CITIS}?countryIds=${countryCode}`, {
       headers: { 'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY },
