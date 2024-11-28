@@ -16,6 +16,7 @@ const useFormValidation = (formState) => {
       newErrors.lastName = "Valid Last name is required.";
 
     if (
+      formState.personalInfo.phone &&
       !/^\+?(\d{1,3})?[\s.-]?\(?\d{1,4}\)?[\s.-]?\d{1,4}[\s.-]?\d{1,4}$/.test(
         formState.personalInfo.phone
       )
@@ -39,8 +40,11 @@ const useFormValidation = (formState) => {
       newErrors.cardNumber = "Credit card number is required.";
     if (!/^\d{16}$/.test(formState.paymentInfo.cardNumber))
       newErrors.cardNumber = "Invalid card number format.";
-    if (!formState.paymentInfo.expiry)
-      newErrors.expiry = "Expiry date is required.";
+    if (
+      !formState.paymentInfo.expiry ||
+      new Date() > new Date(formState.paymentInfo.expiry)
+    )
+      newErrors.expiry = "Valid Expiry date is required.";
     if (!formState.paymentInfo.cvv) newErrors.cvv = "CVV is required.";
 
     setErrors(newErrors);
