@@ -22,17 +22,17 @@ const Step2 = ({ formState, updateFormState, errors }) => {
     const fetchCountries = async () => {
       const response = await fetch(URLS.COUNTRIES);
       const countriesData = await response.json();
-      setCountries(
-        countriesData.map((country) => ({
-          label: country.name.common,
-          value: country.cca2,
-        }))
-      );
+      const mappedCountries = countriesData.map((country) => ({
+        label: country.name.common,
+        value: country.cca2,
+      }))
+      setCountries(mappedCountries);
+      console.log("Alert ", formState.location)
+      if(formState.location.city){
+        fetchCities(mappedCountries.filter((c)=>c.label===formState.location.country)[0]["value"])
+      }
     };
     fetchCountries();
-    if(formState.location.city){
-      fetchCities()
-    }
   }, []);
 
 

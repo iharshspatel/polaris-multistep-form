@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, TextField, Button } from '@shopify/polaris';
+import Step2 from './Step2';
 
 const Summary = ({ formState, updateFormState, errors }) => {
   return (
@@ -35,22 +36,7 @@ const Summary = ({ formState, updateFormState, errors }) => {
          <br/>
       </Card>
       <br/>
-      <Card title="Location" sectioned>
-        <TextField
-          label="Country"
-          value={formState.location.country}
-          onChange={(value) => updateFormState('location', 'country', value)}
-          error={errors.country}
-        />
-         <br/>
-        <TextField
-          label="City"
-          value={formState.location.city}
-          onChange={(value) => updateFormState('location', 'city', value)}
-          error={errors.city}
-        />
-         <br/>
-      </Card> 
+      <Step2 formState={formState} updateFormState={updateFormState} errors={errors}/>
     <br/>
       <Card title="Payment Information" sectioned>
         <TextField
