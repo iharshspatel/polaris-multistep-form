@@ -65,7 +65,7 @@ Ensure you have the following installed:
    ```
 4. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ---
@@ -98,7 +98,7 @@ You can replace these APIs with others by modifying the corresponding fetch func
 
 - **Start Development Server**:
   ```bash
-  npm start
+  npm run dev
   ```
 - **Build for Production**:
   ```bash
